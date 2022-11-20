@@ -1,10 +1,10 @@
 public class MyTeamOrdersController {
 
-    public decimal SumOders {
+    public decimal SumOrders {
         get{
             Id userId = UserInfo.getUserId();
 
-            //Selectionner les enregistrement de Account Team Member 
+            //recupération des enregistrements de Account Team Member 
 
             List<AccountTeamMember> members = [SELECT Id, AccountId FROM AccountTeamMember WHERE UserId = :userId];
             
@@ -18,7 +18,7 @@ public class MyTeamOrdersController {
             //Calculer la somme du montant total pour l'équipe de l'utilisateur en ligne
 
             List<Account> acc = [SELECT Id FROM Account WHERE Id IN :accountIds OR OwnerId = :userId];
-            AggregateResult groupedResults = [SELECT SUM(TotalAmount) total FROM Order WHERE status ='Ordered'];
+            AggregateResult groupedResults = [SELECT SUM(TotalAmount) total FROM Order WHERE status ='Activated'];
             return (decimal)groupedResults.get('total');
         }
         set;
