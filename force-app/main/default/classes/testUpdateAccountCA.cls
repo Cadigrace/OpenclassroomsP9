@@ -48,4 +48,4 @@ private class TestUpdateAccount{
         System.assertEquals(((10*150)+(20*1000))*200, acc1.Chiffre_d_affaire__c);
  
     }
-}g
+}
