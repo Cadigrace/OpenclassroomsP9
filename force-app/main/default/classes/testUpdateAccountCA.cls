@@ -14,16 +14,14 @@ private class TestUpdateAccount{
             Pricebook2Id = System.Test.getStandardPricebookId(),
             Product2Id = pd1.Id,
             UnitPrice = 150,
-            IsActive = true
-        );
+            IsActive = true);
         insert pbe;
 
 	  //Create 200 order
         Integer size = 200;
         List<Order> listOrder = new List<Order>();
         for(Integer i=0; i<size;i++ ) {
-            
-            Order order = new Order(AccountId = acc1.Id,Status = 'Draft', EffectiveDate = date.today(), Pricebook2Id = System.Test.getStandardPricebookId());
+			Order order = new Order(AccountId = acc1.Id,Status = 'Draft', EffectiveDate = date.today(), Pricebook2Id = System.Test.getStandardPricebookId());
             listOrder.add(order);
         }
         insert listOrder;
@@ -45,9 +43,9 @@ private class TestUpdateAccount{
         Test.stopTest();
 
 
-        //Test Chiffre_d_affaire__c is ok
+        //Test Chiffre_d_affaire__c is good
 	    acc1 = [SELECT Id, Chiffre_d_affaire__c FROM Account WHERE Id = :acc1.Id];
         System.assertEquals(((10*150)+(20*1000))*200, acc1.Chiffre_d_affaire__c);
  
-    	}
+    }
 }

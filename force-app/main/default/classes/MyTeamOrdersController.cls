@@ -4,7 +4,7 @@ public class MyTeamOrdersController {
         get{
             Id userId = UserInfo.getUserId();
 
-            //Récupération des enregistrements de Account Team Member dont est membre l'utilisateur connecté
+            //Selectionner les enregistrement de Account Team Member 
 
             List<AccountTeamMember> members = [SELECT Id, AccountId FROM AccountTeamMember WHERE UserId = :userId];
             
@@ -15,7 +15,7 @@ public class MyTeamOrdersController {
                 accountIds.add(member.AccountId);
             }
 
-            //Calculer la somme du montant total des orders pour l'équipe de l'utilisateur connecté
+            //Calculer la somme du montant total pour l'équipe de l'utilisateur en ligne
 
             //List<Account> acc = [SELECT Id FROM Account WHERE Id IN :accountIds];
             AggregateResult groupedResults = [SELECT SUM(TotalAmount) total FROM Order WHERE status ='Activated' AND AccountId IN :accountIds];
