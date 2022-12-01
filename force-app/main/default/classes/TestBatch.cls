@@ -3,7 +3,7 @@ private class TestBatch{
     @isTest static void BatchTest() {
         //Create 50 Accounts
         List<Account> listAccount = new List<Account>();
-        for(Integer i=0; i<200; i++) {
+        for(Integer i=0; i<50; i++) {
             Account acc1 = new Account(Name = 'Test Account' + i);
             listAccount.add(acc1);
         }

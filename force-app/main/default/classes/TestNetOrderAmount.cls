@@ -15,8 +15,8 @@ private class TestNetOrderAmount{
             Pricebook2Id = System.Test.getStandardPricebookId(),
             Product2Id = pd1.Id,
             UnitPrice = 150,
-            IsActive = true
-        );
+            IsActive = true);
+        
         insert pbe;
         
         //Creation of 10 orders linked to Test Account
