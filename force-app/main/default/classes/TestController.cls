@@ -83,8 +83,7 @@ private class TestController{
         }
 
         //Test if SumOrder is ok for each team
-        Test.startTest();
-        Decimal u = 0;
+        Test.startTest();      
         for(User user : listUser) {
             System.runAs(user) {
                 MyTeamOrdersController controller = new MyTeamOrdersController();
